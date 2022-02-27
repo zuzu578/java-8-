@@ -22,3 +22,23 @@ public static void main(String[] args) {
 
 
 ```
+# list HashMap 에서 요소 빼오기 
+
+``` java
+
+	HashMap<String, Object> temp = new HashMap<String, Object>();
+		temp.put("name1", "kaka1");
+		temp.put("name2", "kaka2");
+		temp.put("name3", "kaka3");
+		temp.put("name4", "kaka4");
+		temp.put("name5", "kaka5");
+		List<HashMap> list = new ArrayList<>();
+		list.add(temp);
+		for(int i = 0 ; i < list.size() ; i++) {
+			System.out.println(list.get(i).entrySet().stream()
+	                .filter(entry -> Objects.equals(((Entry) entry).getValue(), "kaka1"))	         
+	                .collect(Collectors.toList()));
+		}
+
+
+```
