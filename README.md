@@ -19,7 +19,11 @@ public static void main(String[] args) {
 			}
 		
 		}
+// 혹은 
 
+	ArrayList<String> a1 = new ArrayList<String>(Arrays.asList("hello","world","name"));
+		List<String> temp = a1.stream().map(item -> item.toUpperCase()).collect(Collectors.toList());
+		System.out.println(temp);
 
 ```
 # list HashMap 에서 요소 빼오기 
