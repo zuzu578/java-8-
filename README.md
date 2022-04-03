@@ -5,6 +5,18 @@ ArrayList<String> words = new ArrayList<String>(Arrays.asList("a","c","q","b","f
 
 
 ```
+# 오름차순 내림차순 정렬 
+```java
+
+String str = "ACBED";
+		String[] stringArr = str.split("");
+
+		List<String> result2 = Stream.of(stringArr).sorted(Comparator.reverseOrder()).collect(Collectors.toList()); // 내림차순
+		List<String> result3 = Stream.of(stringArr).sorted().collect(Collectors.toList());
+		System.out.println("result2"+result2);
+		System.out.println("result3"+result3);
+
+```
 
 # 대소문자 혼합될경우의 정렬 
 ```java
