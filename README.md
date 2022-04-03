@@ -1,3 +1,12 @@
+# find 
+```java
+
+ArrayList<String> temp5 = new ArrayList<String>(Arrays.asList("hello","world","name"));
+		Optional<String> result = temp5.stream().filter(s -> s.startsWith("h")).findFirst();
+		System.out.println(result.get());
+
+
+```
 # sort( 정렬 ) 
 ```java
 ArrayList<String> words = new ArrayList<String>(Arrays.asList("a","c","q","b","f","h","g","d"));
