@@ -1,3 +1,11 @@
+# foreach (lamda) 
+```java
+
+ArrayList<String> a1 = new ArrayList<String>(Arrays.asList("hello","world","name"));
+		a1.forEach(item->System.out.println(item));	
+
+```
+
 # java 8 Filter ( lamda )
 ```java
 public static void main(String[] args) {
