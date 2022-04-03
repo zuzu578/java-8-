@@ -1,3 +1,22 @@
+# Local variable '변수명' defined in an enclosing scope must be final or effectively final
+람다식에서 지역변수는  변경이 불가능하기떄문에 변수를 클래스단에서 생성해서 사용한다.
+```java
+public class Test {
+	
+	private static int empty = 0;
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> temp5 = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
+		
+		
+		temp5.stream().skip(6).forEach(item-> System.out.println(empty = item + empty));
+	
+	}
+
+
+
+```
 # foreach (lamda) 
 ```java
 
