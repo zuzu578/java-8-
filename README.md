@@ -1,9 +1,9 @@
 # hasMap 에서 키값 / value 값으로 요소 찾기
 
 ```java
+	// 키값으로 찾기
 
-
-		Map<String , Object> temp = new HashMap<String , Object>();
+	Map<String , Object> temp = new HashMap<String , Object>();
 		temp.put("key1", "temp1");
 		temp.put("key2", "temp2");
 		temp.put("key3", "temp3");
@@ -11,7 +11,15 @@
 		Optional<Object> tem = temp.entrySet().stream().filter(item -> item.getKey().equals("key1")).map(Map.Entry::getValue).findFirst();
 		System.out.println(tem.get());
 
-
+	// 밸류값으로 키 찾기
+	
+	Map<String , Object> temp = new HashMap<String , Object>();
+		temp.put("key1", "temp1");
+		temp.put("key2", "temp2");
+		temp.put("key3", "temp3");
+		temp.put("key4", "temp4");
+		Optional<String> tem = temp.entrySet().stream().filter(item -> item.getValue().equals("temp1")).map(Map.Entry::getKey).findFirst();
+		System.out.println(tem.get());
 
 
 ```
