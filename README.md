@@ -1,3 +1,10 @@
+# sort( 정렬 ) 
+```java
+ArrayList<String> words = new ArrayList<String>(Arrays.asList("a","c","q","b","f","h","g","d"));
+		List<String> result = words.stream().sorted().collect(Collectors.toList());
+
+
+```
 # Local variable '변수명' defined in an enclosing scope must be final or effectively final
 람다식에서 지역변수는  변경이 불가능하기떄문에 변수를 클래스단에서 생성해서 사용한다.
 ```java
