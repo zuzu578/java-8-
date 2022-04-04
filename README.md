@@ -59,6 +59,15 @@ public static void main(String[] args) {
 
 
 ```
+
+# 난수 스트림 
+
+```java
+// 특정 타입의 난수로 이루어진 스트림 생성
+
+IntStream stream = new Random().ints(4);
+
+```
 # optional class
 
 Java8에서는 Optional<T> 클래스를 사용해 NPE를 방지할 수 있도록 도와준다. Optional<T>는 null이 올 수 있는 값을 감싸는 Wrapper 클래스로, 참조하더라도 NPE가 발생하지 않도록 도와준다. Optional 클래스는 아래와 같은 value에 값을 저장하기 때문에 값이 null이더라도 바로 NPE가 발생하지 않으며, 클래스이기 때문에 각종 메소드를 제공해준다
@@ -194,4 +203,28 @@ public static void main(String[] args) {
 		}
 
 
+```
+	
+# distinct (중복제거)
+
+``` java
+List<String> a1 = new ArrayList<String>();
+		a1.add("hello");
+		a1.add("hello2");
+		a1.add("hello");
+		a1.add("hello1");
+		
+		List<String> result = a1.stream().distinct().collect(Collectors.toList());
+		result.forEach(item->System.out.println(result));
+	
+IntStream stream2 = IntStream.of(7, 5, 5, 2, 1, 2, 3, 5, 4, 6);
+		stream2.distinct().forEach(item->System.out.println(item));;
+	
+	
+// 홀수만 출력하기
+	IntStream stream2 = IntStream.of(7, 5, 5, 2, 1, 2, 3, 5, 4, 6);
+		stream2.distinct().filter(item -> item % 2 != 0).forEach(item->System.out.println(item));
+	
+	
+	
 ```
