@@ -1,3 +1,21 @@
+# 컬렉션에서 스트림 생성 
+collection 인터페이스를 구현한 모른 list , set 컬렉션 클래스에서도 stream() 메소드로 스트림을 생성할수있다.
+parallelStream()을 사용하면 병렬처리 가능한 스트림을 생성할수있다.
+```java
+public static void main(String[] args) {
+		ArrayList<Integer> a1 = new ArrayList<Integer>();
+		a1.add(10);
+		a1.add(20);
+		a1.add(30);
+		a1.add(40);
+		
+		Stream<Integer> s1 = a1.stream();
+		s1.forEach((item->System.out.println(item)));
+		
+	}
+
+
+```
 # optional class
 
 Java8에서는 Optional<T> 클래스를 사용해 NPE를 방지할 수 있도록 도와준다. Optional<T>는 null이 올 수 있는 값을 감싸는 Wrapper 클래스로, 참조하더라도 NPE가 발생하지 않도록 도와준다. Optional 클래스는 아래와 같은 value에 값을 저장하기 때문에 값이 null이더라도 바로 NPE가 발생하지 않으며, 클래스이기 때문에 각종 메소드를 제공해준다
