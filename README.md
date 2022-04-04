@@ -16,6 +16,21 @@ public static void main(String[] args) {
 
 
 ```
+
+# 배열에서 스트림 생성 
+
+```java
+public static void main(String[] args) {
+		// 배열에서 스트림 생성 
+		String[] arr = new String[] {"하나","둘","셋","넷"};
+		Stream<String> s1 = Arrays.stream(arr);
+		
+		// 배열에서 특정 부분만을 이용하여 생성 
+		Stream<String> t1 = Arrays.stream(arr,1,3);
+		
+	}
+
+```
 # optional class
 
 Java8에서는 Optional<T> 클래스를 사용해 NPE를 방지할 수 있도록 도와준다. Optional<T>는 null이 올 수 있는 값을 감싸는 Wrapper 클래스로, 참조하더라도 NPE가 발생하지 않도록 도와준다. Optional 클래스는 아래와 같은 value에 값을 저장하기 때문에 값이 null이더라도 바로 NPE가 발생하지 않으며, 클래스이기 때문에 각종 메소드를 제공해준다
