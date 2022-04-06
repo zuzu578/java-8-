@@ -377,3 +377,34 @@ IntStream stream2 = IntStream.of(7, 5, 5, 2, 1, 2, 3, 5, 4, 6);
 	
 	
 ```
+	
+# stream 활용한 문제풀이 
+<img width="461" alt="스크린샷 2022-04-06 오후 10 58 09" src="https://user-images.githubusercontent.com/69393030/161991775-770f73c7-9d48-4cd9-a882-7a37014e0538.png">
+
+
+	
+```java
+	// 본인은 이렇게함 
+public class Test {
+	
+	public static void main(String[] args) {
+		List<String> myList = new ArrayList<String>();
+		long n = 118372;
+		String num = Integer.toString((int) n);
+		String [] num2 = num.split("");
+
+		for(int i = 0 ; i < num2.length; i++) {
+			myList.add(num2[i]);
+		}
+	
+		List<String> result = myList.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+		
+		System.out.println(Long.parseLong(String.join("", result)));
+	
+		
+		
+	}
+	
+}	
+	
+```
