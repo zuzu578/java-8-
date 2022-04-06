@@ -1,3 +1,17 @@
+# 요소의 연산 : sum(), average()
+
+IntStream이나 DoubleStream과 같은 기본 타입 스트림에는 해당 스트림의 모든 요소에 대해 합과 평균을 구할 수 있는 sum()과 average() 메소드가 각각 정의되어 있습니다.
+
+이때 average() 메소드는 각 기본 타입으로 래핑 된 Optional 객체를 반환합니다.
+
+```java
+
+	IntStream num = IntStream.of(1,2,3,4,5,6,7);
+		DoubleStream num2 = DoubleStream.of(0.1,2.3);
+		OptionalDouble num2Average = num2.average();
+
+```
+
 # 요소의 통계 
 연산후 Optional 객체를 return 한다
 
