@@ -1,3 +1,28 @@
+# 요소의 검색 
+
+findFirst()와 findAny() 메소드는 해당 스트림에서 첫 번째 요소를 참조하는 Optional 객체를 반환합니다.
+
+두 메소드 모두 비어 있는 스트림에서는 비어있는 Optional 객체를 반환합니다. 때문에 int type 으로 참조변수로 사용할수 없다. 
+
+```java
+IntStream stream = IntStream.of(7, 5, 5, 2, 1, 2, 3, 5, 4, 6);
+		// findFirst() , findAny() 를 사용하면 , 첫번째 요소값을 반환 하는데 , return taype 은 OptionalInt
+		OptionalInt result = stream.findFirst();
+		System.out.println(result.getAsInt());
+
+```
+# 스트림 정렬
+```java
+
+public static void main(String[] args) {
+		List<String> myList = new ArrayList<String>(Arrays.asList("JAVA", "HTML", "JAVASCRIPT","CSS"));
+		myList.stream().sorted().forEach(item->System.out.println(item));
+		List<String> myList2 = new ArrayList<String>(Arrays.asList("JAVA", "HTML", "JAVASCRIPT","CSS"));
+		myList2.stream().sorted(Comparator.reverseOrder()).forEach(item->System.out.println(item));;
+	}
+
+```
+
 # 스트림 제한 
 1) limit() : 해당 스트림의 첫번째 요소부터 전달된 개수만큼의 요소만으로 이루어진 새로운 스트림을 반환 
 
