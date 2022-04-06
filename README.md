@@ -1,3 +1,41 @@
+# 요소의 통계 
+연산후 Optional 객체를 return 한다
+
+```java
+		IntStream num = IntStream.of(1,2,3,4,5,6,7);
+		int sum = num.sum();// 합 
+		OptionalInt min = num.min();// 최소 
+		OptionalInt max = num.max();// 최대 
+
+```
+
+
+
+# 요소의 검사
+해당 스트림에서 특정 조건을 만족하는 요소가 있는지 없는지 (여부) (bool) 을 return 합니다.
+ 
+
+1. anyMatch() : 해당 스트림의 일부 요소가 특정 조건을 만족할 경우에 true를 반환함.
+
+2. allMatch() : 해당 스트림의 모든 요소가 특정 조건을 만족할 경우에 true를 반환함.
+
+3. noneMatch() : 해당 스트림의 모든 요소가 특정 조건을 만족하지 않을 경우에 true를 반환함.
+
+
+```java
+public static void main(String[] args) {
+		IntStream stream = IntStream.of(7, 5, 5, 2, 1, 2, 3, 5, 4, 6);
+		// allMattch , 
+//		boolean isMatched1 = stream.distinct().anyMatch(item -> item > 4);
+//		System.out.println(isMatched1);
+		boolean isMatched2 = stream.distinct().allMatch(item -> item > 4);
+		System.out.println(isMatched2);
+	}
+
+
+
+```
+
 # 요소의 검색 
 
 findFirst()와 findAny() 메소드는 해당 스트림에서 첫 번째 요소를 참조하는 Optional 객체를 반환합니다.
