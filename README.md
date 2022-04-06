@@ -1,3 +1,53 @@
+# 요소의 수집 (collect) 
+
+연산처리후 , 요소를 수집하기 위해서 collect(Collectors.toList()) 를 사용한다 이렇게 하게되면 수집한 요소를 List 로 수집할수있다.
+collect() 메소드는 인수로 전달되는 Collectors 객체에 구현된 방법대로 스트림의 요소를 수집합니다.
+
+또한, Collectors 클래스에는 미리 정의된 다양한 방법이 클래스 메소드로 정의되어 있습니다.
+
+이 외에도 사용자가 직접 Collector 인터페이스를 구현하여 자신만의 수집 방법을 정의할 수도 있습니다.
+
+ 
+
+스트림 요소의 수집 용도별 사용할 수 있는 Collectors 메소드는 다음과 같습니다.
+
+ 
+
+1. 스트림을 배열이나 컬렉션으로 변환 : toArray(), toCollection(), toList(), toSet(), toMap()
+
+2. 요소의 통계와 연산 메소드와 같은 동작을 수행 : counting(), maxBy(), minBy(), summingInt(), averagingInt() 등
+
+3. 요소의 소모와 같은 동작을 수행 : reducing(), joining()
+
+4. 요소의 그룹화와 분할 : groupingBy(), partitioningBy()
+```java
+//요소에서 짝수 , 홀수 글자 를 filter 해서 수집하기 
+	Stream<String> stream = Stream.of("HTML", "CSS", "JAVA", "PHP");
+	
+		List<String> evenWord = stream.filter(item -> item.length()%2 == 0).collect(Collectors.toList());
+		List<String> oddWord = stream.filter(item -> item.length()%3 ==0).collect(Collectors.toList());
+		evenWord.forEach(item->System.out.println(item));
+		oddWord.forEach(item->System.out.println(item));
+
+
+```
+
+
+collect
+
+```java
+public static void main(String[] args) {
+		Stream<String> stream = Stream.of("넷", "둘", "하나", "셋");
+		List<String> myList = new ArrayList<String>(stream.collect(Collectors.toList()));
+		Iterator<String> iter = myList.iterator();
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
+		}
+	}
+
+
+```
+
 # 요소의 연산 : sum(), average()
 
 IntStream이나 DoubleStream과 같은 기본 타입 스트림에는 해당 스트림의 모든 요소에 대해 합과 평균을 구할 수 있는 sum()과 average() 메소드가 각각 정의되어 있습니다.
