@@ -1,3 +1,25 @@
+# 스트림 제한 
+1) limit() : 해당 스트림의 첫번째 요소부터 전달된 개수만큼의 요소만으로 이루어진 새로운 스트림을 반환 
+
+2) skip() : 해당 스트림의 첫번째 요소부터 전달된 개수만큼 요소를 제외한 나머지 요소만으로 이루어진 새로운 스트림을 반환  
+
+```java
+public static void main(String[] args) {
+		IntStream stream3 = IntStream.range(0, 10);
+		// limit(5) => 0~4 까지  
+		//stream3.limit(5).forEach(item->System.out.println(item));
+		// skip(5) => 5부터 9까지 
+		//stream3.skip(5).forEach(item->System.out.println(item));
+		// 2~4 까지 
+		stream3.limit(5).skip(2).forEach(item->System.out.println(item));
+		
+		
+		
+	}
+
+
+```
+
 # 컬렉션에서 스트림 생성 
 collection 인터페이스를 구현한 모른 list , set 컬렉션 클래스에서도 stream() 메소드로 스트림을 생성할수있다.
 parallelStream()을 사용하면 병렬처리 가능한 스트림을 생성할수있다.
