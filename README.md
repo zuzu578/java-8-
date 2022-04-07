@@ -1,3 +1,17 @@
+# stream 으로 중복문자 제거 
+```java
+List<String> temp2 = new ArrayList<String>();
+		//🎨🎍🎍🎍🎪🎪👜🎍🎨👜👜🎍
+		String s = "🎨🎍🎍🎍🎪🎪👜🎍🎨👜👜🎍";
+		String [] temp = s.split("");
+		for(int i = 0 ; i < temp.length; i++) {
+			temp2.add(temp[i]);
+		}
+		List<String> result = temp2.stream().distinct().collect(Collectors.toList());
+		System.out.println(String.join("", result));
+
+```
+
 # 요소의 수집 (collect) 
 
 연산처리후 , 요소를 수집하기 위해서 collect(Collectors.toList()) 를 사용한다 이렇게 하게되면 수집한 요소를 List 로 수집할수있다.
