@@ -1,3 +1,26 @@
+# 자바 int 배열을 Integer 배열로 변환
+// boxed => IntStream 같이 원시타입에 대한 스트림 지원을 클래스 타입 으로 전환하여 전용으로 실행 가능한 기능을 수행하기 위해 존재한다.
+
+```java
+import java.util.Arrays;
+public class MyClass {
+    public static void main(String args[]) {
+        int a[] = {1,2,3,4};
+	
+        int a[] = {1,2,3,4};
+        Integer b[] = Arrays.stream(a).boxed().toArray(Integer[]::new); 
+
+        System.out.println( a.getClass() );        // class [I
+        System.out.println( Arrays.toString(a) );  // [1, 2, 3, 4]
+        
+        System.out.println( b.getClass() );        // class [Ljava.lang.Integer;
+        System.out.println( Arrays.toString(b) );  // [1, 2, 3, 4]
+    }
+}
+
+
+```
+
 # stream 으로 중복문자 제거 
 ```java
 List<String> temp2 = new ArrayList<String>();
