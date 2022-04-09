@@ -1,3 +1,12 @@
+# collections 에서 min max 값구하기 (arrayList)
+```java
+Collections.max(list);
+Collections.min(list);
+```
+
+
+출처: https://hianna.tistory.com/571 [어제 오늘 내일]
+
 # 자바 int 배열을 Integer 배열로 변환
 // boxed => IntStream 같이 원시타입에 대한 스트림 지원을 클래스 타입 으로 전환하여 전용으로 실행 가능한 기능을 수행하기 위해 존재한다.
 
