@@ -366,6 +366,16 @@ ArrayList<String> a1 = new ArrayList<String>(Arrays.asList("hello","world","name
 
 # java 8 Filter ( lamda )
 ```java
+/**
+	List<Integer> numberList = new ArrayList<Integer>();
+		int [] arr = {1,2,3,4,5,6,7,8,9};
+		for(int i = 0 ; i < arr.length ; i++) {
+			numberList.add(arr[i]);
+		}
+		numberList.stream().filter(item->item > 4).forEach(item->System.out.println(item));
+			
+	
+**/
 public static void main(String[] args) {
 		List <Integer> number = Arrays.asList(1,2,3,4,5,6,7);
 
