@@ -361,6 +361,17 @@ public class Test {
 
 ArrayList<String> a1 = new ArrayList<String>(Arrays.asList("hello","world","name"));
 		a1.forEach(item->System.out.println(item));	
+	
+	
+	
+HashMap<String, String> map = new HashMap<String, String>();
+        ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String,String>>();
+        map.put("no", "3");
+        map.put("title", "test3");
+        map.put("no1", "4");
+        map.put("title1", "test4");
+        list.add(map);
+        list.forEach(item->System.out.println(item));
 
 ```
 
