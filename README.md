@@ -1,3 +1,19 @@
+# IntStream sorted() 하기 
+
+IntStream 을 stream 에서 sorted() 하기 위해서는 boxed 를 사용한다.
+
+ex) 
+```java
+int a = 3;
+int b = 5;
+
+IntStream stream3 = IntStream.rangeClosed(a, b);
+
+stream3.boxed().sorted(Comparator.reverseOrder()).forEach(item->System.out.println(item));
+
+```
+
+
 # collections 에서 min max 값구하기 (arrayList)
 ```java
 Collections.max(list);
