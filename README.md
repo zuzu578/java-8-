@@ -1,3 +1,62 @@
+# spring 에서의 @RequestBody와 @ModelAttribute
+
+1) @RequestBody
+```java
+// controller
+@PostMapping("/requestbody")
+public ResponseEntity<RequestBodyDto> testRequestBody(@RequestBody RequestBodyDto requestBodyDto) {
+    return ResponseEntity.ok(requestBodyDto);
+}
+public class RequestBodyDto {
+
+    private String name;
+    private long age;
+    private String password;
+    private String email;
+
+    public RequestBodyDto() {
+    }
+
+    public RequestBodyDto(String name, long age, String password, String email) {
+        this.name = name;
+        this.age = age;
+        this.password = password;
+        this.email = email;
+    }
+	// getter , setter 
+}
+
+
+
+```
+
+클라이언트가 보내는 http 요청 본문(json , xml) 을 java object 로 변환한다.
+
+내부적으로 ObjectMapper를 통해 JSON 값을 Java 객체로 역직렬화하는 것을 알 수있다.
+
+@RequestBody를 사용하면 요청 본문의 JSON, XML, Text 등의 데이터가 적합한 HttpMessageConverter를 통해 파싱되어 Java 객체로 변환 된다.
+@RequestBody를 사용할 객체는 필드를 바인딩할 생성자나 setter 메서드가 필요없다.
+
+다만 직렬화를 위해 기본 생성자는 필수다.
+또한 데이터 바인딩을 위한 필드명을 알아내기 위해 getter나 setter 중 1가지는 정의되어 있어야 한다.
+
+2) @ModelAttribute
+
+@ModelAttribute 애너테이션의 역할은 클라이언트가 보내는 HTTP 파라미터들을 특정 Java Object에 바인딩(맵핑) 하는 것입니다. /modelattribute?name=req&age=1 같은 Query String 형태 혹은 요청 본문에 삽입되는 Form 형태의 데이터를 처리합니다.
+
+@ModelAttribute를 사용하면 HTTP 파라미터 데이터를 Java 객체에 맵핑한다.
+
+따라서 객체의 필드에 접근해 데이터를 바인딩할 수 있는 생성자 혹은 setter 메서드가 필요하다.
+Query String 및 Form 형식이 아닌 데이터는 처리할 수 없다.
+
+
+참조 :  https://tecoble.techcourse.co.kr/post/2021-05-11-requestbody-modelattribute/
+
+
+
+
+
+
 # IntStream sorted() 하기 
 
 IntStream 을 stream 에서 sorted() 하기 위해서는 boxed 를 사용한다.
