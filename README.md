@@ -9,10 +9,11 @@ Cache 를 쓰는 목적은
 2) 웹어플리케이션의 서버의 부하를 감소시킨다.
 
 3) 어플리케이션의 빠른 처리성능을 확보하여 궁극적으로 어플리케이션을 사용하는 클라이언트에게 최적의 서비스를 제공한다.
-4)    
-# spring 에서의 @RequestBody와 @ModelAttribute
 
 @Cacheable 은 캐시가 있으면 캐시의 정보를 가져오고 , 없으면 캐시를 등록한다(ex): Redis 등 )
+
+# spring 에서의 @RequestBody와 @ModelAttribute
+
 
 1) @RequestBody
 ```java
