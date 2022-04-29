@@ -1,3 +1,54 @@
+# JSONObject 접근하기
+
+간혹 
+
+```
+{
+    "type": "champion",
+    "format": "standAloneComplex",
+    "version": "10.16.1",
+    "data": {
+        "Aatrox": {
+            "version": "10.16.1",
+            "id": "Aatrox",
+            "key": "266",
+            "name": "Aatrox",
+            "title": "Die Klinge der Düsteren",
+            "blurb": "Einst waren Aatrox und seine Brüder ehrenhafte Verteidiger Shurimas gegen die Leere, die zu einer noch größeren Bedrohung für Rune
+
+}
+```
+이런 object 일경우 이렇게 접근하면 된다.
+```java
+String response = stringBuffer.toString();
+
+            JSONParser parser = new JSONParser();
+
+            JSONObject j1 = (JSONObject) parser.parse(response);
+
+            Iterator iter = j1.keySet().iterator();
+            while (iter.hasNext()) {
+                String key = (String) iter.next();
+                if (j1.get(key) instanceof JSONObject) {
+                    JSONObject value = (JSONObject) j1.get(key);
+
+                    Iterator iter2 = value.keySet().iterator();
+                    while (iter2.hasNext()) {
+                        String key2 = (String) iter2.next();
+                        if (value.get(key2) instanceof JSONObject) {
+                            JSONObject value2 = (JSONObject) value.get(key2);
+                            p1.put(value2.get("key"), value2.get("id"));
+
+                        }
+                    }
+
+                }
+            }
+
+
+
+```
+
 # @Cacheable
 cache 란 , 한번 읽은 데이터를 임시로 저장하고 필요에따라 전송 , 갱신 , 삭제하는 기술로 보통 데이터의 보관장소로 서버의 메모리를 사용하는경우가 많다.
 디스크에서 정보를 얻어오는것보다 훨씬 빠른 IO 성능을 얻을수 있으나 서버가 다운되거나 재부팅되는 경우 사라지는 성격의 휘발성을 가지고 있어서 , 영속적으로 보관할수없는,  임시적으로 보관하고 빠르게 그 정보에 접근하기 위한 용도로 사용한다.
