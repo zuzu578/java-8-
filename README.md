@@ -1,3 +1,18 @@
+# 뒤에서 문자열 자르기 
+
+우연히 개인 프로젝트 개발중 이런문제가있었다. 곡 + 난이도 가있는 문자열에서 뒤에있는 난이도만  추출하고싶었을때 어찌하면좋을까? 
+
+해결책은 이렇다. subString.
+
+```java
+
+String test2 = "カウントダウン 「名探偵コナン」より 〇 2 4 5 8 -";
+System.out.println(test2.substring(test2.length() - 9, test2.length()));
+
+
+
+```
+
 # JSONObject 접근하기
 
 간혹 
