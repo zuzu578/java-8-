@@ -1,3 +1,12 @@
+# 문자열 뒤집기
+
+String buffer 에서 reverse 를 사용하면된다.
+```java
+StringBuffer sb = new StringBuffer(String.join("", difficulty));
+		String reverse = sb.reverse().toString();
+
+```
+
 # 뒤에서 문자열 자르기 
 
 우연히 개인 프로젝트 개발중 이런문제가있었다. 곡 + 난이도 가있는 문자열에서 뒤에있는 난이도만  추출하고싶었을때 어찌하면좋을까? 
