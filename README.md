@@ -1,12 +1,13 @@
 
 # list map get value 
+```java
 List CmmnCodeList = zipManageService.selectZipList(searchVO);
 			System.out.println("test " + CmmnCodeList);
 			List<Map<String, Object>> listMap = CmmnCodeList;  
 			for(int i = 0 ; i < listMap.size() ; i++) {
 				System.out.println(listMap.get(i).get("rnum"));
 			}
-
+```
 # 문자열 뒤집기
 
 String buffer 에서 reverse 를 사용하면된다.
