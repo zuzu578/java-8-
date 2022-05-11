@@ -1,4 +1,13 @@
 
+# subString 
+
+```java
+
+String test = "123456";
+test.substring(5); // 0~4 제외한 값 가져옴 js 의 slice()와 비슷 
+
+```
+
 # list map get value 
 ```java
 List CmmnCodeList = zipManageService.selectZipList(searchVO);
