@@ -1,3 +1,14 @@
+# spring 에서 autowired 문제 
+
+@Service, @Repository, @Component 를 붙이면 Spring Container가 관리하는 bean 객체라는 뜻.
+
+@Autowired 를 붙여주어야 두 클래스의 의존관계가 형성된다.
+new로 객체를 생성해서 쓰면 그 객체는 Spring Container가 관리하는게 아니어서 @Autowired를 통한 의존성 주입이 불가해진다.
+때문에 
+<img width="436" alt="스크린샷 2022-05-13 오후 4 39 17" src="https://user-images.githubusercontent.com/69393030/168235069-32208fb4-4b16-42dd-8291-ba83c766e67e.png">
+
+이렇게 하도록 하자.
+
 
 # subString 
 
