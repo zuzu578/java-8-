@@ -9,6 +9,8 @@ new로 객체를 생성해서 쓰면 그 객체는 Spring Container가 관리하
 
 이렇게 하도록 하자.
 
+참조 : https://rimkongs.tistory.com/256
+
 
 # subString 
 
