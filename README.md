@@ -512,6 +512,39 @@ ArrayList<String> words = new ArrayList<String>(Arrays.asList("a","c","q","b","f
 
 
 ```
+# Comparator
+
+```java
+String arr2[] = {
+				"21 Junkyu",
+				"21 Dohyun",
+				"20 Sunyoung"
+				};
+		
+		//Arrays.asList(arr2).stream().sorted((a,b)->a.split(" ")[0].equals(b.split(" ")[0]) ? a.compareTo(b) : a.length()-b.length()).collect(Collectors.toList()).forEach(item->System.out.println(item));;
+//		Arrays.asList(arr)
+//		.stream()
+//		.distinct()
+//		.sorted((a,b)->a.length() == b.length()? a.compareTo(b) : a.length() -b.length())
+//		.forEach(item->System.out.println(item));
+//		
+	
+		Arrays.sort(arr2, new Comparator<String>() {
+			@Override
+			public int compare(String s1, String s2) {
+				if(s1.split(" ")[0] == s2.split(" ")[0]) {
+					return 0; 
+				}else {
+					System.out.println(s2.length() - s1.length());
+					return s2.length() - s1.length();
+				}
+			}
+		});
+		
+		Arrays.asList(arr2).stream().distinct().forEach(item->System.out.println(item));
+
+
+```
 # 오름차순 내림차순 정렬 
 ```java
 
