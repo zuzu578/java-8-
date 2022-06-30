@@ -1,3 +1,21 @@
+# VO <-> MAP 
+
+vo 객체를 map으로 변환 하거나 , map 을 vo 로 변환하고 싶을경우 . 
+
+https://github.com/zuzu578/java-8-/blob/main/ConvertUtils.java
+
+====> 
+``` java
+ // List hashMap to list vo
+    		List<GoodsVO> convertValueObjects = convertUtils.convertToValueObjects(arr,GoodsVO.class);
+ 
+
+```
+1)  parameter : list hashMap , vo class  
+
+
+
+
 # spring 에서 autowired 문제 
 
 @Service, @Repository, @Component 를 붙이면 Spring Container가 관리하는 bean 객체라는 뜻.
