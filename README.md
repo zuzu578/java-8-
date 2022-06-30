@@ -4,6 +4,7 @@ vo 객체를 map으로 변환 하거나 , map 을 vo 로 변환하고 싶을경�
 
 https://github.com/zuzu578/java-8-/blob/main/ConvertUtils.java
 
+ 참고 : https://kim-jong-hyun.tistory.com/47 
 ====> 
 ``` java
  // List hashMap to list vo
