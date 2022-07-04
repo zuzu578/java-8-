@@ -1,3 +1,21 @@
+# json String to Map or List...
+```java
+// string to map 
+ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> mapFromString = new HashMap<>();
+			try {
+				mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+				mapFromString = mapper.readValue(paramMap.get("data").toString(), Map.class);
+			} catch (IOException e) {
+			    e.getMessage();
+			    resultMap.put("isSuccess", false);
+			    resultMap.put("message",Message.invalidDataForm);
+			    resultMap.put("code",MessageCode.invalidDataForm);
+			    return resultMap;
+			}
+
+```
+
 # VO <-> MAP 
 
 vo 객체를 map으로 변환 하거나 , map 을 vo 로 변환하고 싶을경우 . 
