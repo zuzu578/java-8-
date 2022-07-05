@@ -41,11 +41,11 @@ public class ConvertUtils {
                     field.setAccessible(true);
                     String name = field.getName();
                       // parameter 로 넘어온 문자열이 숫자인지 판별 
-                    boolean isNumeric =  ((String) entry.getValue()).matches("[+-]?\\d*(\\.\\d+)?");
+                    boolean isNumeric =   entry.getValue().toString().matches("[+-]?\\d*(\\.\\d+)?");
                     Object parseIntValue = null;
                     if(isNumeric) {
-                    	parseIntValue = (int)Integer.parseInt((String) entry.getValue());
-                       }
+                    	parseIntValue = (int)Integer.parseInt(entry.getValue().toString());
+                    }
                     // integer 타입과 int 타입 불일치를 방지 
                     Class<? extends Object> entryType = entry.getValue().getClass();
                     Class<? extends Object> fieldType = field.getType(); // 실제 field 는 int type 
