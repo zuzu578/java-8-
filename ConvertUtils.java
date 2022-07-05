@@ -1,3 +1,5 @@
+package egovframework.api.admin.utils;
+
 import java.lang.reflect.Field;
 import java.util.*;
 
@@ -38,20 +40,34 @@ public class ConvertUtils {
                 for (Field field : fields) {
                     field.setAccessible(true);
                     String name = field.getName();
-                   
+                      // parameter 로 넘어온 문자열이 숫자인지 판별 
+                    boolean isNumeric =  ((String) entry.getValue()).matches("[+-]?\\d*(\\.\\d+)?");
+                    Object parseIntValue = null;
+                    if(isNumeric) {
+                    	parseIntValue = (int)Integer.parseInt((String) entry.getValue());
+                       }
                     // integer 타입과 int 타입 불일치를 방지 
-                    Class<? extends Object> entryType = entry.getValue().getClass(); // integer type 으로 전달됨 
+                    Class<? extends Object> entryType = entry.getValue().getClass();
                     Class<? extends Object> fieldType = field.getType(); // 실제 field 는 int type 
-                     //target type 이 string 으로 넘어올경우 string 일 경우 해당 조건을 실행시키지 않기위함 
-                    if(!fieldType.equals(java.lang.Integer.class) &&!fieldType.equals(java.lang.String.class) ) {
-                    		fieldType = java.lang.Integer.class;
+                     
+                      // parameter 값이 숫자일때 
+                    if(!fieldType.equals(entryType) &&!fieldType.equals(java.lang.String.class) && isNumeric) {
+                    		entryType = int.class;
                        }
                    
+                    
                     boolean isSameType = entryType.equals(fieldType);
                     boolean isSameName = entry.getKey().equals(name);
 
+                      
                     if (isSameType && isSameName) {
-                        field.set(instance, map.get(name));
+                    	// 숫자일 경우 int 로 casting 한 값을 field 에 setting 해준다.
+                    	if(isNumeric) {
+                    		field.set(instance, parseIntValue);                    				
+                    	}else {
+                    		field.set(instance, map.get(name));
+                    	}
+                    	
                         break;
                     }
                 }
