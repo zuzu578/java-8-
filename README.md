@@ -1,3 +1,72 @@
+# spring 에서 interceptor 설정 
+1) interceptor class 생성 
+```java
+
+public class MenuInterceptor extends HandlerInterceptorAdapter{
+	
+	private final MenuService menuService;
+	
+	@Autowired
+	MenuInterceptor(MenuService menuService){
+		this.menuService = menuService;
+	}
+	
+	
+	
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+		String servletPath = request.getServletPath();
+		
+		boolean isAccess = false;
+			String Auth = SecurityAuth.getAuth();
+			//String Auth = "ROLE_USER";
+			List<HashMap<String , Object>> authList = menuService.getAuthList(Auth); 
+			authList.forEach(item->System.out.println(item));
+			Optional<HashMap<String, Object>> findPath =
+					authList
+					.stream()
+					.filter(item->item.get("rolePttrn").toString().contains(servletPath))
+					.findAny();
+			
+			if(!findPath.isEmpty()) {
+				isAccess = true;
+			}
+		
+		
+		return isAccess;
+	}
+	
+	 @Override
+	    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+	            ModelAndView modelAndView) throws Exception {
+	        
+	        System.out.println("postHandle1");
+	        
+	        
+	    }
+
+}
+
+
+```
+2) dispather-servlet.xml	
+```xml
+<mvc:interceptors>
+	        <mvc:interceptor>
+	            <mvc:mapping path="/system/**" />
+	            <mvc:exclude-mapping path="/bo/uat/uia/actionLogin.do" />
+	             <mvc:exclude-mapping path="/bo/login" />
+	               <mvc:exclude-mapping path="/bo/selectMenuManageList" />
+	         
+	            <bean class="egovframework.system.menu.web.MenuInterceptor">
+	            </bean>
+	        </mvc:interceptor>
+	    </mvc:interceptors>
+
+```
+
+
 # json String to Map or List...
 ```java
 // string to map 
