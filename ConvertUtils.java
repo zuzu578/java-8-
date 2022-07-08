@@ -40,33 +40,18 @@ public class ConvertUtils {
                 for (Field field : fields) {
                     field.setAccessible(true);
                     String name = field.getName();
-                      // parameter 로 넘어온 문자열이 숫자인지 판별 
-                    boolean isNumeric =   entry.getValue().toString().matches("[+-]?\\d*(\\.\\d+)?");
-                    Object parseIntValue = null;
-                    if(isNumeric) {
-                    	parseIntValue = (int)Integer.parseInt(entry.getValue().toString());
-                    }
-                    // integer 타입과 int 타입 불일치를 방지 
+                
                     Class<? extends Object> entryType = entry.getValue().getClass();
-                    Class<? extends Object> fieldType = field.getType(); // 실제 field 는 int type 
+                    Class<? extends Object> fieldType = field.getType(); 
                      
-                      // parameter 값이 숫자일때 
-                    if(!fieldType.equals(entryType) &&!fieldType.equals(java.lang.String.class) && isNumeric) {
-                    		entryType = int.class;
-                       }
-                   
-                    
+                  
                     boolean isSameType = entryType.equals(fieldType);
                     boolean isSameName = entry.getKey().equals(name);
-
+                      
                       
                     if (isSameType && isSameName) {
-                    	// 숫자일 경우 int 로 casting 한 값을 field 에 setting 해준다.
-                    	if(isNumeric) {
-                    		field.set(instance, parseIntValue);                    				
-                    	}else {
-                    		field.set(instance, map.get(name));
-                    	}
+                  
+                    	field.set(instance, map.get(name));
                     	
                         break;
                     }
