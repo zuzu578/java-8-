@@ -1,3 +1,26 @@
+# 배열에서 중복되는 원소 자체를 삭제하고 싶을경우
+```java
+ public static void main(String[] args) {
+        arr = Arrays.asList(1, 1, 7, 3, 7, 2, 2, 3, 4, 3, 0, 2, 2, 3, 1, 7, 6, 8, 4, 9);
+        arr.sort((a, b) -> a - b);
+        List<Integer> duplicatedList = new ArrayList<Integer>();
+	
+	// 중복되는 elements 를 저장 
+        for (int i = 0; i < arr.size() - 1; i++) {
+            if (arr.get(i) == arr.get(i + 1)) {
+                duplicatedList.add(arr.get(i));
+            }
+        }
+	// 중복 제거 후 요소 수집
+        arr = arr.stream().distinct().collect(Collectors.toList());
+	// 저장한 elements 를 target 으로 삭제
+        duplicatedList.forEach(item -> arr.remove(item));
+	
+        arr.forEach(item -> System.out.println(item));
+
+    }
+
+```
 # Object mapper 
 ``` java
 GoodsInsertVO goods = mapper.readValue(paramBody, GoodsInsertVO.class);
