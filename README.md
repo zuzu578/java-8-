@@ -23,7 +23,7 @@
 ```
 # Object mapper 
 ``` java
-GoodsInsertVO goods = mapper.readValue(paramBody, GoodsInsertVO.class);
+GoodsInsertVO goods = mapper.convertValue(paramMap, AdminApiUserVO.class);
 // 이렇게 하면 json.stringfy 된 json 문자열을 vo 에 맞게 매핑해준다.
 
 ```
