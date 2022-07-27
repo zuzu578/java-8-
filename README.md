@@ -1,3 +1,9 @@
+# VO field 에 접근하여 type 알아내기
+```java
+SystemOrderVO.class.getDeclaredField(sKey).getType().getTypeName()
+
+```
+
 # 배열에서 중복되는 원소 자체를 삭제하고 싶을경우
 ```java
  public static void main(String[] args) {
