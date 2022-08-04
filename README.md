@@ -1,3 +1,11 @@
+# jsonString escape 문자 제거 
+```java
+import org.apache.commons.lang.StringEscapeUtils;
+
+String jsonStrings = StringEscapeUtils.unescapeJava(retJson.toJSONString());
+
+```
+
 # VO field 에 접근하여 type 알아내기
 ```java
 SystemOrderVO.class.getDeclaredField(sKey).getType().getTypeName()
