@@ -1,3 +1,20 @@
+# List<VO> pojo object to json Array 
+// GSON 을 사용하는 방법이 있다.
+# maven 
+```xml
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.9.1</version>
+</dependency>
+
+
+```
+
+``` java
+String decryptedResponseData = new Gson().toJsonTree(resultBody.getPojo()).toString().replace("\u0000", "").replace("\\u0000", "").trim();
+```
 # jsonString escape 문자 제거 
 ```java
 import org.apache.commons.lang.StringEscapeUtils;
