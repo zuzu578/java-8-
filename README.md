@@ -1,4 +1,4 @@
-# List<VO> pojo object to json Array 
+# pojo object to json Array 
 // GSON 을 사용하는 방법이 있다.
 # maven 
 ```xml
