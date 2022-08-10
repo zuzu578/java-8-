@@ -1,3 +1,15 @@
+# List<Object> to List<VO> 
+``` java
+// 먼저 Object로 업 캐스팅하여 모든 객체를 모든 유형으로 캐스팅 할 수 있다.
+// 예 )
+
+// list object 
+List<Object> row = myService.getRows();
+// list VO 
+// object 로 업캐스팅 후 , List VO 로 캐스팅 
+List<RoleUrlPatternVO> roleAuthUrlList = (List<RoleUrlPatternVO>)(Object)egovAuthManageService.getRoleAuthUrlListByauthority(authority);
+
+```
 # pojo object to json Array 
 // GSON 을 사용하는 방법이 있다.
 # maven 
