@@ -1,4 +1,4 @@
-# List<Object> to List<VO> 
+# List Object to List VO 
 ``` java
 // 먼저 Object로 업 캐스팅하여 모든 객체를 모든 유형으로 캐스팅 할 수 있다.
 // 예 )
