@@ -1,5 +1,6 @@
 # getwriter() has already been called for this response / getWriter() 가 이미 호출되었습니다.
-// 참고 : https://stackoverflow.com/questions/34768341/spring-boot-interceptor-return-json (인터셉터에서 object 등을 return 하는방법)
+참고 : https://stackoverflow.com/questions/34768341/spring-boot-interceptor-return-json (인터셉터에서 object 등을 return 하는방법)
+
 printWriter 는 한번만 쓸수 있는데 여러번 쓰게 되면 나는 오류이다.
 
 다음을 보자.
