@@ -3,7 +3,7 @@
 
 printWriter 는 한번만 쓸수 있는데 여러번 쓰게 되면 나는 오류이다.
 
-다음을 보자.
+다음을 보자
 
 ```java
 package egovframework.com.cmm.interceptor;
