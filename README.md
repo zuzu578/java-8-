@@ -1,3 +1,35 @@
+# getOrDefault()
+java 8 에서 추가된 api 
+찾는 key 가 존재한다면 , key 의 value 를 반환하고 그렇지 않으면 default 값을 반환한다 (StringUtil.nvl()) 과 비슷 
+
+사용 예
+``` java
+public class Target {
+
+	public static void main(String[] args) {
+		Map<String , Integer> targetMap = new HashMap<String , Integer>();
+		String target [] = {"top","top","top","top","kimtop"};
+		for(int i = 0 ; i < target.length ; i ++) { 
+			targetMap.put(target[i], targetMap.getOrDefault(target[i], 0) + 1);
+		}
+		System.out.println(targetMap);
+	}	
+}
+
+```
+
+위 코드는 target 이라는 배열을 순회하면서 , 해당 원소들의 갯수를 count 한다.
+
+처음 targetMap 에는 아무런 값이 없기때문에 default 값인 0 을 반환 +1 이므로 
+
+top = 1  
+
+두번째 targetMap 에는 top 이라는 key 값이 존재하므로 , top에 해당하는 value 1 을 반환 +1 
+top = 2 
+
+계속 반복하면  top = 4 , top 은 4가된다. 
+
+
 # getwriter() has already been called for this response / getWriter() 가 이미 호출되었습니다
 참고 : https://stackoverflow.com/questions/34768341/spring-boot-interceptor-return-json (인터셉터에서 object 등을 return 하는방법)
 
