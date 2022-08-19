@@ -1,3 +1,23 @@
+# JsonArray ( [{} , {} , {} , {} ] list Object) 형태를  list map 으로 변경하는 법 
+```java
+JSONObject contentsObj = (JSONObject) parser.parse(result.getData().toString());
+Map<String, Object> jsonObject = gson.fromJson(contentsObj.toString(), new TypeToken<Map<String, Object>>(){}.getType());
+List<Map<String, Object>> jsonList = (List) jsonObject.get("contents"); // jsonObject 에 contents 라는 key target => contents : [ {} , {} , {} ];
+
+
+```
+
+# list map iterate 
+```java
+for (Map<String, Object> map : jsonList) {
+	for (Map.Entry<String, Object> entry : map.entrySet()) {
+		String key = entry.getKey();
+		Object value = entry.getValue();
+		model.addAttribute(key,value);
+	}
+}
+
+```
 # getOrDefault()
 java 8 에서 추가된 api 
 찾는 key 가 존재한다면 , key 의 value 를 반환하고 그렇지 않으면 default 값을 반환한다 (StringUtil.nvl()) 과 비슷 
