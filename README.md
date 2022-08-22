@@ -1,3 +1,14 @@
+# gson list type 추론 
+
+Gson 에서 deserialize 를 하면 이런코드를 사용하게되는데
+```java
+new TypeToken<List<MyType>>(){}.getType()
+
+```
+사실 제네릭은 자바에서는 컴파일 하면 소거되기때문에 원래 타입을 알수없게되어 gson 에서는 TypeToken 을 사용한다.
+
+참조 : https://namocom.tistory.com/671 
+
 # jsonParse
 ```java
 JSONParse parser = new JSONParse();
