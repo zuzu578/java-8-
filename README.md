@@ -4,6 +4,15 @@ JSONParse parser = new JSONParse();
 parser.parse(json문자열 target);
 // json문자열에 \ 가붙은 경우가 있는데 이럴경우 parsing 해주면 됨 
 ```
+
+간혹 objectMapper 를 이용하여 mapper.writeValueAsString() 을 사용할경우 json 문자열에 \ 가 생기는데 이런경우도 이런식으로 하면된다. 
+
+```java
+JSONObject data = new JSONObject();
+data.put("contents", parser.parse(mapper.writeValueAsString(goodsList)));
+data.put("pagination", pagination);
+
+```
 # JsonArray ( [{} , {} , {} , {} ] list Object) 형태를  list map 으로 변경하는 법 
 ```java
 JSONObject contentsObj = (JSONObject) parser.parse(result.getData().toString());
