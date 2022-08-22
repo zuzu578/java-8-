@@ -1,3 +1,9 @@
+# jsonParse
+```java
+JSONParse parser = new JSONParse();
+parser.parse(json문자열 target);
+// json문자열에 \ 가붙은 경우가 있는데 이럴경우 parsing 해주면 됨 
+```
 # JsonArray ( [{} , {} , {} , {} ] list Object) 형태를  list map 으로 변경하는 법 
 ```java
 JSONObject contentsObj = (JSONObject) parser.parse(result.getData().toString());
