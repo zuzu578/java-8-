@@ -1,3 +1,13 @@
+# List<HashMap<String,Object>> 를 List<VO> 로 변환 
+
+```java
+List<HashMap<String , Object>> myRows = service.getData();
+// list hashMap 을 list Object 로 받는다 
+// 그런다음 list Object 를 list VO 로 캐스팅해주면된다. 
+
+// 1) list hashMap => list Object => list VO 
+```
+
 # gson list type 추론 
 
 Gson 에서 deserialize 를 하면 이런코드를 사용하게되는데
