@@ -1,3 +1,11 @@
+# spring security 에서 중복로그인 방지 기능 
+```xml
+<!--  중복로그인 방지 -->
+<!-- <security:session-management invalid-session-url="/login/loginSessionCheck.do" session-fixation-protection="migrateSession">
+	 <security:concurrency-control max-sessions="1" expired-url="/login/loginSessionCheck.do" error-if-maximum-exceeded="false" />
+</security:session-management>  -->
+```
+
 # List<HashMap<String,Object>> 를 List<VO> 로 변환 
 
 ```java
