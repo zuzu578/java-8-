@@ -1,3 +1,15 @@
+# json Array 를 List<VO> 로 변환 
+```java
+JSONObject obj = (JSONObject)result.getData();
+JSONArray arr = (JSONArray) obj.get("contents");
+try {
+	List<CategoryVO> cateListObj = gson.fromJson(arr.toString(),  new TypeToken<ArrayList<CategoryVO>>(){}.getType());
+	model.addAttribute("cateList", cateListObj);
+     }catch(Exception e) {
+	log.debug(e.getMessage());
+     }
+```
+
 # spring security 에서 중복로그인 방지 기능 
 ```xml
 <!--  중복로그인 방지 -->
